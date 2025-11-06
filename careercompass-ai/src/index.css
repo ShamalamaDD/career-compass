@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .ai-card { @apply bg-base-900/60 border border-white/10 rounded-2xl p-5 backdrop-blur-xl; }
+  .glass   { @apply bg-white/5 border border-white/10 backdrop-blur-xl; }
+  .gradient-text { @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-emerald-300; }
+}
+
+@layer components {
+  .ai-card {
+    @apply bg-base-900/60 border border-white/10 rounded-2xl p-5 backdrop-blur-xl;
+  }
+  .glass {
+    @apply bg-white/5 border border-white/10 backdrop-blur-xl;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-emerald-300;
+  }
+}
