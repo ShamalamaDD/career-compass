@@ -1,31 +1,30 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
-export type CVFile = { id: string; name: string; size: number };
-export type RankedJob = {
+export type CVFile = { id: string; name: string; size: number; file: File };
+
+export type RankedCV = {
   id: string;
-  title: string;
-  company: string;
-  summary: string;
-  tags: string[];
-  match: number;
+  filename: string;
+  score: number;
+  highlights: string[];
 };
 
 type State = {
   cvs: CVFile[];
-  jobs: RankedJob[];
+  results: RankedCV[];
   loading: boolean;
   addCVs: (x: CVFile[]) => void;
-  setJobs: (x: RankedJob[]) => void;
+  setResults: (x: RankedCV[]) => void;
   setLoading: (x: boolean) => void;
   clear: () => void;
 };
 
 export const useApp = create<State>((set) => ({
   cvs: [],
-  jobs: [],
+  results: [],
   loading: false,
   addCVs: (x) => set((s) => ({ cvs: [...s.cvs, ...x] })),
-  setJobs: (x) => set({ jobs: x }),
+  setResults: (x) => set({ results: x }),
   setLoading: (x) => set({ loading: x }),
-  clear: () => set({ cvs: [], jobs: [] }),
+  clear: () => set({ cvs: [], results: [], loading: false }),
 }));
